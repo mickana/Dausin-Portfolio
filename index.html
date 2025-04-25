@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micka Dausin - Portfolio</title>
+    <link rel="icon" type="image/png" href="img/dausin.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .education-container {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-card:nth-child(1) { animation-delay: 0.1s; }
+        .education-card:nth-child(2) { animation-delay: 0.2s; }
+        .education-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .school-name {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .year {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .year i {
+            color: var(--primary-color);
+        }
+
+        .details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eef2f6;
+        }
+
+        .details h3 {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .details li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .details li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .achievement {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .achievement h4 {
+            color: var(--dark-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .skill-progress.html { width: 90%; }
+        .skill-progress.js { width: 75%; }
+        .skill-progress.python { width: 80%; }
+        .skill-progress.git { width: 85%; }
+        .skill-progress.vscode { width: 90%; }
+        .skill-progress.figma { width: 70%; }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-button {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .resume-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .resume-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="img/dausin.jpg" alt="M" class="logo-image">Micka
+                    <span>Portfolio</span>
+                </a>
+                
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Student | Volleyball Player | Overthinker</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1Pm51RzREb/?mibextid=qi2Omg" target="_blank" rel="noopener" title="Facebook Profile"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/daushinie?igsh=N2EwcDZybWM4ZjZy" target="_blank" rel="noopener" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                    <a href="https://web.telegram.org/a/#979634641" target="_blank" rel="noopener" title="Telegram Profile"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.com/mickachuussme" target="_blank" rel="noopener" title="Discord Profile"><i class="fab fa-discord"></i></a>
+                    <a href="https://www.tiktok.com/@mickadaushin?_t=ZS-8vUoXim5kNm&_r=1" target="_blank" rel="noopener" title="TikTok Profile"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://github.com/mickana" target="_blank" rel="noopener" class="github-link" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                </div>
+                <a href="#about" class="cta-button">Biography</a>
+            </div>
+            <div class="hero-image">
+                <img src="img/dausin.jpg" alt="Micka Dausin">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>Biography</h2>
+            <div class="section-line"></div>
+            <p class="section-description">Get to know more about me</p>
+        </div>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="img/haha.jpg" alt="Micka Dausin">
+                <div class="image-overlay">
+                    <div class="overlay-content">
+                        <h3>Micka Dausin</h3>
+                        <p>BSIT Student</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/1Pm51RzREb/?mibextid=qi2Omg" target="_blank" rel="noopener" title="Facebook Profile"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/daushinie?igsh=N2EwcDZybWM4ZjZy" target="_blank" rel="noopener" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                            <a href="https://web.telegram.org/a/#979634641" target="_blank" rel="noopener" title="Telegram Profile"><i class="fab fa-telegram"></i></a>
+                            <a href="https://discord.com/mickachuussme" target="_blank" rel="noopener" title="Discord Profile"><i class="fab fa-discord"></i></a>
+                            <a href="https://www.tiktok.com/@mickadaushin?_t=ZS-8vUoXim5kNm&_r=1" target="_blank" rel="noopener" title="TikTok Profile"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://github.com/mickana" target="_blank" rel="noopener" class="github-link" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="personal-info">
+                    <h3><i class="fas fa-user"></i> Personal Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Name:</span>
+                            <span class="info-value">Micka Rebong Dausin</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Birthday:</span>
+                            <span class="info-value">03.04.2005</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Age:</span>
+                            <span class="info-value">20 years old</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Hometown:</span>
+                            <span class="info-value">Victoria, Laguna</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Religion:</span>
+                            <span class="info-value">Iglesia ni Cristo</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">mickadausin2@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Phone:</span>
+                            <span class="info-value">09938713177</span>
+                        </div>
+                    </div>
+                    <button class="resume-button" onclick="openResumeModal()">
+                        <i class="fas fa-file-alt"></i> View Resume
+                    </button>
+                </div>
+                <div class="bio-description">
+                    <div class="greeting">
+                     
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <div class="section-header">
+            <h2>Education</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="education-container">
+            <div class="education-card">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-content">
+                    <div class="school-name">Laguna State Polytechnic University</div>
+                    <div class="degree">Bachelor of Science in Information Technology</div>
+                    <div class="year">
+                        <i class="fas fa-calendar-alt"></i>
+                        2021 - Present
+                    </div>
+                    <div class="education-details">
+                        <div class="details">
+                            <h3>Current Status</h3>
+                            <ul>
+                                <li>Currently pursuing Bachelor's degree</li>
+                                <li>Expected graduation: 2025</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="education-content">
+                    <div class="school-name">Moreh Global Innovative College</div>
+                    <div class="degree">Information and Communication Technology (ICT)</div>
+                    <div class="year">
+                        <i class="fas fa-calendar-alt"></i>
+                        2019 - 2021
+                    </div>
+                    <div class="education-details">
+                        <div class="details">
+                            <h3>Core Subjects</h3>
+                            <ul>
+                                <li>Computer System Servicing</li>
+                            </ul>
+                        </div>
+                        <div class="achievements">
+                            <h3>Achievements</h3>
+                            <ul>
+                                <li><i class="fas fa-trophy"></i> Best in CSS</li>
+                                <li><i class="fas fa-trophy"></i> Best in 3is</li>
+                                <li><i class="fas fa-trophy"></i> Best in Research Group</li>
+                                <li><i class="fas fa-award"></i> Service Award</li>
+                                <li><i class="fas fa-medal"></i> Huwarang Mag-aaral</li>
+                                <li><i class="fas fa-medal"></i> Natatanging Mag-aaral</li>
+                                <li><i class="fas fa-star"></i> With Honors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="education-content">
+                    <div class="school-name">Nanhaya National High School</div>
+                    <div class="year">
+                        <i class="fas fa-calendar-alt"></i>
+                        2015 - 2019
+                    </div>
+                    <div class="education-details">
+                        <div class="achievements">
+                            <h3>Achievements</h3>
+                            <ul>
+                                <li><i class="fas fa-star"></i> With Honors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <h2>Skills & Expertise</h2>
+            <div class="section-line"></div>
+            <p class="section-description">My technical skills and areas of expertise</p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML/CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress html"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress js"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress python"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Git/GitHub</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress git"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>VS Code</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress vscode"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Figma</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress figma"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <div class="section-line"></div>
+            <p class="section-description">Explore my recent work and creative endeavors</p>
+        </div>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="img/storytimeKingdom.jpg" alt="Storytime Kingdom">
+                </div>
+                <div class="project-content">
+                    <h3>StoryTime Kingdom</h3>
+                    <p>A digital platform designed to promote literacy and reading among children. Features interactive storybooks, educational games, and a user-friendly interface that makes learning fun and engaging for young readers.</p>
+                 
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/img/thesisLMS.jpg" alt="Thesis LMS">
+                </div>
+                <div class="project-content">
+                    <h3>Thesis Library Management System</h3>
+                    <p>A comprehensive digital repository system for managing academic theses and research papers. Includes features for document organization, search functionality, and secure access control for students and faculty members.</p>
+                   
+                    <div class="project-tags">
+                        <span>Java</span>
+                        <span>MySQL</span>
+                        <span>Spring Boot</span>
+                        <span>REST API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/img/app.jpg" alt="Thesis LMS">
+                </div>
+                <div class="project-content">
+                    <h3>LibMan Application</h3>
+                    <p>A comprehensive system for managing library operations including book inventory, member management, borrowing records, and automated notifications for due dates and returns.</p>
+                    <div class="project-tags">
+                        <span>Android Studio</span>
+                        <span>Firebase</span>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="img/regi.jpg" alt="Thesis LMS">
+                </div>
+                <div class="project-content">
+                    <h3>E-commerce ni Regi Website</h3>
+                    <p>A full-featured e-commerce platform with product catalog, shopping cart, secure payment integration, and user authentication. Features include order tracking and inventory management.</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Bootstrap</span>
+                        <span>Python/Flask</span>
+                        <span>SQLyog</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>s
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <div class="section-line"></div>
+            <p class="section-description">Let's work together on your next project</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>mickadausin2@gmail.com</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>+63 993 871 3177</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Victoria, Laguna, Philippines</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        Send Message
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">Micka Dausin</div>
+                <p class="footer-description">A passionate IT student with a love for technology and learning. Always striving to create meaningful and innovative solutions.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/1Pm51RzREb/?mibextid=qi2Omg" target="_blank" rel="noopener" title="Facebook Profile"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/daushinie?igsh=N2EwcDZybWM4ZjZy" target="_blank" rel="noopener" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                    <a href="https://web.telegram.org/a/#979634641" target="_blank" rel="noopener" title="Telegram Profile"><i class="fab fa-telegram"></i></a>
+                    <a href="https://discord.com/mickachuussme" target="_blank" rel="noopener" title="Discord Profile"><i class="fab fa-discord"></i></a>
+                    <a href="https://www.tiktok.com/@mickadaushin?_t=ZS-8vUoXim5kNm&_r=1" target="_blank" rel="noopener" title="TikTok Profile"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://github.com/mickana" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="#education"><i class="fas fa-chevron-right"></i> Education</a></li>
+                    <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                    <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                    <li><a href="#hobbies"><i class="fas fa-chevron-right"></i> Hobbies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>mickadausin2@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>09938713177</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Victoria, Laguna</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Micka Dausin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="modal.js"></script>
+
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeResumeModal()">&times;</span>
+            <h2>My Resume</h2>
+            <div class="resume-container">
+                <img src="img/RESUME.png" alt="Micka Dausin's Resume" class="resume-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Resume Modal Functions
+        function openResumeModal() {
+            document.getElementById('resumeModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+
+        function closeResumeModal() {
+            document.getElementById('resumeModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('resumeModal');
+            if (event.target === modal) {
+                closeResumeModal();
+            }
+        }
+    </script>
+</body>
+</html>
